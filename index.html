@@ -4,16 +4,21 @@
    <head>
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    </head>
-   <body>
+   <body ng-controller="StoreController as store">
 
       <!-- add a directive ng-contoller -->
       <!-- StoreController = Controller name -->
       <!-- store = Alias of StoreController. 'store' is what we'll use inside our Expressions -->
       <!-- scope of StoreController is only in this div -->
-      <div ng-controller="StoreController as store">
-         <h1> {{store.product.name}} </h1>
-         <h2> ${{store.product.price}} </h2>
-         <p> {{store.product.description}} </p>
+         <ul class="list-group">
+            <li class="list-group-item" ng-repeat="product in store.products">
+               <h3>
+                  {{ product.name }}
+                  <em class="pull-right">{{ product.price | currency }}</em>
+                  <img ng-src="{{product.images[0].full}}" />
+               </h3>
+            </li>
+         </ul>
       </div>
 
       <script type="text/javascript" src="js/angular.min.js"></script>
