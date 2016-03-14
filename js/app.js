@@ -6,6 +6,18 @@
       this.products = gems;
    });
 
+   app.controller('PanelController', function() {
+      this.tab = 1;
+
+      this.selectTab = function(setTab) {
+         this.tab = setTab;
+      };
+
+      this.isSelected = function(checkTab) {
+         return this.tab === checkTab;
+      };
+   });
+
    // object
    var gems = [
       {
@@ -18,6 +30,20 @@
                full: 'images/gem-01.gif',
                thumb: 'images/gem-02.gif'
             }
+         ],
+         reviews: [
+            {
+               stars: 3,
+               body: "I think this gem is the best around!",
+               author: "jimmy@gems.com",
+               createdOn: 139749903475
+            },
+            {
+               stars: 4,
+               body: "It couldn't get any better.",
+               author: "nobetter@gems.com",
+               createdOn: 924382398223
+            }
          ]
       },
       {
@@ -29,6 +55,20 @@
             {
                full: 'images/gem-03.gif',
                thumb: 'images/gem-04.gif'
+            }
+         ],
+         reviews: [
+            {
+               stars: 0,
+               body: "This thing sucks!",
+               author: "jimmy@gems.com",
+               createdOn: 139749903475
+            },
+            {
+               stars: 24,
+               body: "It couldn't get any better.",
+               author: "nobetter@gems.com",
+               createdOn: 924382398223
             }
          ]
       }
