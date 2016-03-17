@@ -27,6 +27,13 @@
       }
    });
 
+   app.directive('productTitle', function() {
+      return {
+         restrict: 'E',
+         templateUrl: 'product_title.html'
+      };
+   });
+
    // object
    var gems = [
       {
