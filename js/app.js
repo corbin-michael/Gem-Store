@@ -6,17 +6,9 @@
       this.products = gems;
    });
 
-   app.controller('PanelController', function() {
-      this.tab = 1;
-
-      this.selectTab = function(setTab) {
-         this.tab = setTab;
-      };
-
-      this.isSelected = function(checkTab) {
-         return this.tab === checkTab;
-      };
-   });
+   // app.controller('PanelController', function() {
+   //
+   // });
 
    app.controller('ReviewController', function() {
       this.review = {};
@@ -33,6 +25,26 @@
          templateUrl: 'product_title.html'
       };
    });
+
+   app.directive('productPanels', function() {
+      return {
+         restrict: 'E',
+         templateUrl: 'product_tabs.html',
+         controller: function() {
+            this.tab = 1;
+
+            this.selectTab = function(setTab) {
+               this.tab = setTab;
+            };
+
+            this.isSelected = function(checkTab) {
+               return this.tab === checkTab;
+            };
+         },
+         controllerAs: 'panel'
+      };
+   });
+
 
    // object
    var gems = [
